@@ -28,6 +28,7 @@ jobs:
     docker:
       - image: cimg/base:2020.01
     steps:
+      - run: mkdir -p /tmp/workspace
       - run: echo "Hello from the first job" >> /tmp/workspace/output.txt
       - persist_to_workspace:
           root: /tmp/workspace
