@@ -30,7 +30,7 @@ jobs:
     steps:
       - run: echo "Hello from the first job" >> output.txt
       - persist_to_workspace:
-          root: /tmp/demo_project
+          root: /tmp/workspace
           paths:
             - output.txt
 
@@ -40,7 +40,7 @@ jobs:
     steps:
       - run: cat output.txt
       - attach_workspace:
-          at: /tmp/demo_project
+          at: /tmp/workspace
 
 # Orchestrate or schedule a set of jobs
 workflows:
