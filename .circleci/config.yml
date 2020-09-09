@@ -39,9 +39,9 @@ jobs:
     docker:
       - image: cimg/base:2020.01
     steps:
-      - run: cat /tmp/workspace/output.txt
       - attach_workspace:
           at: /tmp/workspace
+      - run: cat /tmp/workspace/output.txt
 
 # Orchestrate or schedule a set of jobs
 workflows:
