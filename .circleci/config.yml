@@ -28,7 +28,7 @@ jobs:
     docker:
       - image: cimg/base:2020.01
     steps:
-      - run: echo "Hello from the first job" >> output.txt
+      - run: echo "Hello from the first job" >> /tmp/workspace/output.txt
       - persist_to_workspace:
           root: /tmp/workspace
           paths:
@@ -38,7 +38,7 @@ jobs:
     docker:
       - image: cimg/base:2020.01
     steps:
-      - run: cat output.txt
+      - run: cat /tmp/workspace/output.txt
       - attach_workspace:
           at: /tmp/workspace
 
