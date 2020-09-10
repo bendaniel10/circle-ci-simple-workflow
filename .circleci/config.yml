@@ -70,6 +70,5 @@ workflows:
     # Run the welcome/run job in its own container
     jobs:
       - job_will_fail
-      - run_after_job_fails
 
 
