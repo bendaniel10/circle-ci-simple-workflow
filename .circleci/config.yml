@@ -59,9 +59,9 @@ jobs:
     steps:
       - run: foo this will faill
       - run: 
-        name: Run after failure
-        command: echo "I am running after failed job"
-        when: on_fail
+          name: Run after failure
+          command: echo "I am running after failed job"
+          when: on_fail
 
 # Orchestrate or schedule a set of jobs
 workflows:
