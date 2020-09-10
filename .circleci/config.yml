@@ -47,12 +47,21 @@ jobs:
           at: /tmp/workspace
       - run: cat /tmp/workspace/output.txt
 
-
   print_pipeline_id_job:
     docker:
       - image: cimg/base:2020.01
     steps:
       - print_pipeline_id
+
+  job_will_fail:
+    docker:
+      - image: cimg/base:2020.01
+    steps:
+      - run: foo this will faill
+      - run: 
+        name: Run after failure
+        command: echo "I am running after failed job"
+        when: on_fail
 
 # Orchestrate or schedule a set of jobs
 workflows:
@@ -60,6 +69,7 @@ workflows:
   welcome:
     # Run the welcome/run job in its own container
     jobs:
-      - print_pipeline_id_job
+      - job_will_fail
+      - run_after_job_fails
 
 
